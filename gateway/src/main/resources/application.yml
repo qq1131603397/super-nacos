@@ -1,0 +1,35 @@
+server:
+  port: 20001
+
+# 服务名称
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #通过服务名称访问服务，并开启小写
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: business
+          uri: lb://business
+          predicates:
+            - Path=/business/**
+        - id: es
+          uri: lb://es
+          predicates:
+            - Path=/es/**
+        - id: redis
+          uri: lb://redis
+          predicates:
+            - Path=/redis/**
+    nacos:
+      discovery:
+        server-addr: 192.168.17.129:8848
+# 配置Gateway日志等级，输出转发细节信息
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+    com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver: WARN

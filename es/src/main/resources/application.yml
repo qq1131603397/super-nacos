@@ -1,0 +1,33 @@
+server:
+  port: 20002
+  servlet:
+    context-path: /es
+
+# 服务名称
+spring:
+  application:
+    name: es
+
+#elasticsearch配置
+es:
+  cluster:
+    name: my-application
+  user: elastic
+  password: elastic
+  url: 192.168.17.129
+  port: 9300
+  http:
+    ssl:
+      enabled: true
+      keystore:
+        password: elastic
+      truststore:
+        password: elastic
+  transport:
+    ssl:
+      verification-mode: certificate
+      enabled: true
+      keystore:
+        password: elastic
+      truststore:
+        password: elastic
