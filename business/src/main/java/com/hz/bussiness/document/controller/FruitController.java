@@ -2,7 +2,7 @@ package com.hz.bussiness.document.controller;
 
 import com.hz.bussiness.document.entity.Fruit;
 import com.hz.bussiness.document.service.FruitService;
-import com.hz.bussiness.common.entity.ResultVO;
+import com.hz.common.entity.ResultVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

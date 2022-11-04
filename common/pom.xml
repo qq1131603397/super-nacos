@@ -87,6 +87,12 @@
             <version>2.7.0</version>
         </dependency>
 
+        <!-- 时间工具类 -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>

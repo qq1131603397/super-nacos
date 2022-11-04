@@ -35,6 +35,29 @@ public class ResultVO implements Serializable {
         this.msg = msg;
     }
 
+    public static ResultVO success(String kind, Object data, String msg) {
+        return new ResultVO(true, data, kind, msg);
+    }
+
+    public static ResultVO success(Object data) {
+        return new ResultVO(true, data, null, null);
+    }
+
+    public static ResultVO failure(String kind, Object data, String msg) {
+        return new ResultVO(false, data, kind, msg);
+    }
+
+    public static ResultVO failure(Object data) {
+        return new ResultVO(false, data, null, null);
+    }
+
+    public ResultVO(boolean result, Object data, String kind, String msg) {
+        this.result = result;
+        this.data = data;
+        this.kind = kind;
+        this.msg = msg;
+    }
+
     public String getKind() {
         return this.kind;
     }
@@ -67,11 +90,5 @@ public class ResultVO implements Serializable {
         this.data = data;
     }
 
-    public ResultVO(boolean result, Object data, String kind, String msg) {
-        this.result = result;
-        this.data = data;
-        this.kind = kind;
-        this.msg = msg;
-    }
 }
 

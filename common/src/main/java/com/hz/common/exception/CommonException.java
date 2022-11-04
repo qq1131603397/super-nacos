@@ -1,4 +1,4 @@
-package com.hz.bussiness.common.exception;
+package com.hz.common.exception;
 
 /**
  * @author： pt

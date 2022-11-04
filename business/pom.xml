@@ -18,6 +18,8 @@
         <dependency>
             <groupId>com.hz</groupId>
             <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
         <!--jpa-hibernate-->
@@ -63,12 +65,6 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.1</version>
-        </dependency>
-
-        <!-- 时间工具类 -->
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
         </dependency>
 
     </dependencies>
