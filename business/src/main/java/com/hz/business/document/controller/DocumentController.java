@@ -1,4 +1,4 @@
-package com.hz.bussiness.document.controller;
+package com.hz.business.document.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

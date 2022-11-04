@@ -1,8 +1,8 @@
-package com.hz.bussiness.document.service;
+package com.hz.business.document.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.hz.bussiness.document.entity.Fruit;
-import com.hz.bussiness.document.mapper.FruitMapper;
+import com.hz.business.document.entity.Fruit;
+import com.hz.business.document.mapper.FruitMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

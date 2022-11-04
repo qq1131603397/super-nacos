@@ -1,4 +1,4 @@
-package com.hz.bussiness.document.util;
+package com.hz.business.document.util;
 
 import com.alibaba.excel.metadata.Head;
 import com.alibaba.excel.write.merge.AbstractMergeStrategy;

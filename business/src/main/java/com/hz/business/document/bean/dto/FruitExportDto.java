@@ -1,4 +1,4 @@
-package com.hz.bussiness.document.bean.dto;
+package com.hz.business.document.bean.dto;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Data;

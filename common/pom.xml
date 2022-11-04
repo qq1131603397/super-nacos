@@ -44,9 +44,9 @@
 
         <!--lombok快照-->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>2.2.1.RELEASE</version>
         </dependency>
 
         <!--Nacos-->
@@ -60,7 +60,6 @@
             <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
             <version>2.1.1.RELEASE</version>
         </dependency>
-
 
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -111,6 +110,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>

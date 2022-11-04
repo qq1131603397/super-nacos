@@ -1,7 +1,7 @@
-package com.hz.bussiness.document.controller;
+package com.hz.business.document.controller;
 
-import com.hz.bussiness.document.entity.Fruit;
-import com.hz.bussiness.document.service.FruitService;
+import com.hz.business.document.entity.Fruit;
+import com.hz.business.document.service.FruitService;
 import com.hz.common.entity.ResultVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

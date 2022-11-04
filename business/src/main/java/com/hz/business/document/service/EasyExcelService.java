@@ -1,10 +1,10 @@
-package com.hz.bussiness.document.service;
+package com.hz.business.document.service;
 
 import com.alibaba.excel.util.CollectionUtils;
 import com.google.common.collect.Lists;
-import com.hz.bussiness.common.utils.TimeUtils;
-import com.hz.bussiness.document.bean.dto.FruitExportDto;
-import com.hz.bussiness.document.entity.Fruit;
+import com.hz.common.utils.TimeUtils;
+import com.hz.business.document.bean.dto.FruitExportDto;
+import com.hz.business.document.entity.Fruit;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

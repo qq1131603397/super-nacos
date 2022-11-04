@@ -1,7 +1,7 @@
-package com.hz.bussiness.document.mapper;
+package com.hz.business.document.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hz.bussiness.document.entity.Fruit;
+import com.hz.business.document.entity.Fruit;
 
 /**
  * @author： pt

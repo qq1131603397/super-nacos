@@ -67,6 +67,13 @@
             <version>3.5.1</version>
         </dependency>
 
+        <!--lombok快照-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+        </dependency>
+
     </dependencies>
 
     <build>

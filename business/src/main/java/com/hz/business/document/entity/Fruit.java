@@ -1,4 +1,4 @@
-package com.hz.bussiness.document.entity;
+package com.hz.business.document.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;

@@ -1,4 +1,4 @@
-package com.hz.bussiness.swagger.config;
+package com.hz.business.swagger.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

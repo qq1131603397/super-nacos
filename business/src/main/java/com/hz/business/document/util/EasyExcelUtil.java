@@ -1,4 +1,4 @@
-package com.hz.bussiness.document.util;
+package com.hz.business.document.util;
 
 import com.alibaba.excel.write.metadata.style.WriteCellStyle;
 import com.alibaba.excel.write.metadata.style.WriteFont;
