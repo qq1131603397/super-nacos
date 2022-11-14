@@ -1,5 +1,6 @@
 package com.hz.business.document.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hz.business.document.entity.Fruit;
 import com.hz.business.document.mapper.FruitMapper;
@@ -27,5 +28,11 @@ public class FruitService {
     public List<Fruit> list() {
         QueryWrapper<Fruit> queryWrapper = new QueryWrapper<>();
         return fruitMapper.selectList(queryWrapper);
+    }
+
+    public List<Fruit> queryList() {
+        LambdaQueryWrapper<Fruit> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(Fruit::getFruit, "苹果");
+        return fruitMapper.selectList(lqw);
     }
 }

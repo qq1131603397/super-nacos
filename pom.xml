@@ -15,6 +15,8 @@
         <module>common</module>
         <module>es</module>
         <module>business</module>
+        <module>consumer</module>
+        <module>producer</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

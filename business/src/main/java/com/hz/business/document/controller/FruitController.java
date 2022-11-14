@@ -33,4 +33,9 @@ public class FruitController {
         return ResultVO.success("新增成功");
     }
 
+    @GetMapping("list")
+    public ResultVO list() {
+        return ResultVO.success(fruitService.queryList());
+    }
+
 }

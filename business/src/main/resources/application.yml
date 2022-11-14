@@ -23,3 +23,6 @@ spring:
         #指定jpa的自动表生成策略，驼峰自动映射为下划线格式7
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
     show-sql: true # 默认false，在日志里显示执行的sql语句
+
+custom:
+  name: 123456

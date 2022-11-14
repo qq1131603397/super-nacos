@@ -1,0 +1,14 @@
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 20004
+
+spring:
+  application:
+    name: consumer
+
+custom:
+  name: 123456
