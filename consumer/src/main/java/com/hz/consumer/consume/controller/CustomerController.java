@@ -25,12 +25,12 @@ public class CustomerController {
     private ProducerFeignClient producerFeignClient;
 
     @GetMapping("getName")
-    public String getName(){
+    public String getName() {
         return customName;
     }
 
-    @GetMapping("testFeign")
-    public String testFeign(){
+    @GetMapping(value = "testFeign", produces = "application/json; charset=utf-8")
+    public String testFeign() {
         return producerFeignClient.testFeign("consumer");
     }
 

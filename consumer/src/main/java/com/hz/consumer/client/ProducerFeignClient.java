@@ -1,7 +1,9 @@
 package com.hz.consumer.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author： pt
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "producer")
 public interface ProducerFeignClient {
 
-    @GetMapping(value = "/producer/feign")
-    public String testFeign(String name);
+    @RequestMapping(value = "/producer/feign", method = RequestMethod.GET)
+    public String testFeign(@RequestParam("name") String name);
 
 }
