@@ -4,7 +4,7 @@ spring:
   cloud:
       nacos:
         config:
-          server-addr: 192.168.17.129:8848
+          server-addr: 192.168.179.128:8848
           namespace: 8ef588ec-5a15-442f-bef3-8ea62d02ca3c
           file-extension: yml
           shared-dataids: common-nacos.yml

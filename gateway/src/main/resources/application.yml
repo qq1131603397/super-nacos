@@ -29,7 +29,7 @@ spring:
           - Path=/redis/**
     nacos:
       discovery:
-        server-addr: 192.168.17.129:8848
+        server-addr: 192.168.179.128:8848
 # 配置Gateway日志等级，输出转发细节信息
 logging:
   level:
