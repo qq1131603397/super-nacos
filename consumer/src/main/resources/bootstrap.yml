@@ -1,15 +1,17 @@
 spring:
   application:
-    name: comsumer
+    name: consumer
   cloud:
       nacos:
         config:
           server-addr: 192.168.179.128:8848
           namespace: 8ef588ec-5a15-442f-bef3-8ea62d02ca3c
+          # 配置文件类型
           file-extension: yml
+          # 共享Data ID配置
           shared-dataids: common-nacos.yml
+          # 可刷新Data ID配置
           refreshable-dataids: common-nacos.yml
-          prefix: comsumer
+          prefix: consumer
   profiles:
     active: dev
-

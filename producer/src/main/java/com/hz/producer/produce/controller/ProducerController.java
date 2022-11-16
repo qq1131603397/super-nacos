@@ -19,4 +19,14 @@ public class ProducerController {
         return name + "调用了Producer服务";
     }
 
+    @GetMapping(value = "hystrix", produces = "application/json; charset=utf-8")
+    public String testHystrix() {
+        try {
+            Thread.sleep(10 * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "调用了Hystrix方法";
+    }
+
 }

@@ -17,16 +17,14 @@ spring:
           uri: lb://business
           predicates:
           - Path=/business/**
-          filters:
-          - AddRequestHeader=X-Request-red, blue
-        - id: es
-          uri: lb://es
+        - id: consumer
+          uri: lb://consumer
           predicates:
-          - Path=/es/**
-        - id: redis
-          uri: lb://redis
+          - Path=/consumer/**
+        - id: producer
+          uri: lb://producer
           predicates:
-          - Path=/redis/**
+          - Path=/producer/**
     nacos:
       discovery:
         server-addr: 192.168.179.128:8848
