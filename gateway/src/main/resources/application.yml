@@ -16,15 +16,15 @@ spring:
         - id: business
           uri: lb://business
           predicates:
-          - Path=/business/**
+            - Path=/business/**
         - id: consumer
           uri: lb://consumer
           predicates:
-          - Path=/consumer/**
+            - Path=/consumer/**
         - id: producer
           uri: lb://producer
           predicates:
-          - Path=/producer/**
+            - Path=/producer/**
     nacos:
       discovery:
         server-addr: 192.168.179.128:8848

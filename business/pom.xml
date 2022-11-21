@@ -74,6 +74,13 @@
             <version>1.18.24</version>
         </dependency>
 
+        <!--aspose-words-->
+        <dependency>
+            <groupId>com.hz.custom</groupId>
+            <artifactId>aspose-words</artifactId>
+            <version>16.4.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

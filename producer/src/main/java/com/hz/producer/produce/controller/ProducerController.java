@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @discription
  */
 @RestController
-@RequestMapping("producer")
 public class ProducerController {
 
     @GetMapping(value = "feign", produces = "application/json; charset=utf-8")

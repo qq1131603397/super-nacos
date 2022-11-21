@@ -25,4 +25,6 @@ spring:
     show-sql: true # 默认false，在日志里显示执行的sql语句
 
 custom:
+  report:
+    path: D:\globalFileStorage\temps
   name: 123456
