@@ -32,7 +32,7 @@ public class AsposeController {
         if (new File(filePath).exists()) {
             asposeService.exportAspose(filePath, response);
         } else {
-            asposeService.handleAsposeReport(filePath);
+            asposeService.handleAsposeReport(filePath, response);
         }
     }
 

@@ -1,16 +1,14 @@
 package com.hz.business.document.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.aspose.words.CellVerticalAlignment;
-import com.aspose.words.Document;
-import com.aspose.words.DocumentBuilder;
-import com.aspose.words.ParagraphAlignment;
+import com.aspose.words.*;
 import com.aspose.words.net.System.Data.DataSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.hz.business.document.bean.vo.FileTransferVo;
 import com.hz.business.document.util.AsposeWordsHelper;
 import com.hz.common.utils.FileUtils;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.util.*;
+import java.util.List;
 
 /**
  * @author： pt
@@ -56,8 +55,16 @@ public class AsposeService {
         }
     }
 
-    public void handleAsposeReport(String filePath) throws Exception {
-        File file = FileUtils.getFile("tpl/aspose.docx");
+    /**
+     * 生成aspose文档
+     *
+     * @param filePath
+     * @param response
+     * @throws Exception
+     */
+    public void handleAsposeReport(String filePath, HttpServletResponse response) throws Exception {
+        ClassPathResource classPathResource = new ClassPathResource("tpl/aspose.docx");
+        File file = classPathResource.getFile();
         Document document = new Document(new FileInputStream(file));
         //行式结构数据填充
         Map<String, Object> map = new HashMap<>();
@@ -76,8 +83,16 @@ public class AsposeService {
         builder.moveToBookmark("mark_opsDetails");
         //自定义表格
         buildData(builder);
+        document.save(filePath + ".pdf", SaveFormat.PDF);
+        exportAspose(filePath, response);
     }
 
+    /**
+     * 生成表格数据
+     *
+     * @param builder
+     * @throws Exception
+     */
     private void buildData(DocumentBuilder builder) throws Exception {
         builder.getCellFormat().setVerticalAlignment(CellVerticalAlignment.CENTER);
         builder.getParagraphFormat().setAlignment(ParagraphAlignment.CENTER);
@@ -100,6 +115,7 @@ public class AsposeService {
 
     /**
      * 运维内容
+     *
      * @return
      */
     private List<List<Object>> getOpsDetails() {
@@ -111,6 +127,7 @@ public class AsposeService {
 
     /**
      * 文件传输
+     *
      * @return
      */
     private List<List<Object>> getFileInfos() {
