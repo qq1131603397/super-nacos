@@ -16,6 +16,7 @@
         <module>es</module>
         <module>business</module>
         <module>consumer</module>
+        <module>knife</module>
         <module>producer</module>
     </modules>
     <properties>

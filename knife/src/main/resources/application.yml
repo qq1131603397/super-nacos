@@ -1,0 +1,27 @@
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 20006
+
+spring:
+  application:
+    name: knife
+
+knife4j:
+  # 是否开启增强模式
+  enable: true
+  # 开启屏蔽文档资源
+  production: false
+  # 是否开启验证
+  basic:
+    enable: false
+    username: admin
+    password: admin
+
+## 配置需要打印日志的接口或包名
+logging:
+  level:
+    com.hz.consumer: debug

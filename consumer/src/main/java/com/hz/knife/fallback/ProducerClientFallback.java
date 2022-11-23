@@ -1,6 +1,6 @@
-package com.hz.consumer.fallback;
+package com.hz.knife.fallback;
 
-import com.hz.consumer.client.ProducerFeignClient;
+import com.hz.knife.client.ProducerFeignClient;
 import org.springframework.stereotype.Component;
 
 /**
