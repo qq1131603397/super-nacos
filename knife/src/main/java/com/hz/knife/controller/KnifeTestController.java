@@ -5,6 +5,7 @@ import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.hz.knife.entity.KnifeBean;
 import com.hz.knife.entity.ResultVO;
 import io.swagger.annotations.*;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -20,7 +21,7 @@ public class KnifeTestController {
 
     @ApiOperation(value = "测试GET请求", notes = "单个参数")
     @GetMapping(value = "getOne", produces = "application/json; charset=utf-8")
-    public ResultVO<JSONObject> getTest(@ApiParam(name = "name", value = "用户名称", required = false, example = "张三") @RequestParam("name") String name) {
+    public ResultVO<JSONObject> getTest(@ApiParam(name = "name", value = "用户名称", required = false) @RequestParam("name") String name) {
         if (name == null || "".equals(name)) {
             return new ResultVO<>(false, null, "用户名为空");
         }
@@ -32,9 +33,9 @@ public class KnifeTestController {
     @ApiOperation(value = "测试GET请求", notes = "多个参数")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "name", value = "用户名", dataType =
-                    "String", required = true, defaultValue = "admin", paramType = "query", example = "admin"),
+                    "String", required = true, paramType = "query"),
             @ApiImplicitParam(name = "password", value = "密码", dataType =
-                    "String", required = true, defaultValue = "ADmin@123", paramType = "query", example = "ADmin@123")
+                    "String", required = true, paramType = "query")
     })
     @GetMapping(value = "getMore", produces = "application/json; charset=utf-8")
     public ResultVO<JSONObject> getTest2(@RequestParam("name") String name, @RequestParam("password") String password) {
@@ -48,7 +49,7 @@ public class KnifeTestController {
     @GetMapping(value = "getPath/{path}", produces = "application/json; charset=utf-8")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "path", value = "路径", dataType =
-                    "String", required = true, defaultValue = "test", paramType = "path", example = "test")
+                    "String", required = true, paramType = "path")
     })
     public ResultVO<JSONObject> getTest3(@PathVariable("path") String path) {
         JSONObject obj = new JSONObject();
@@ -68,7 +69,7 @@ public class KnifeTestController {
             @ApiResponse(code = 503, message = "服务不可用"),
     })
     @PostMapping(value = "postTest", produces = "application/json; charset=utf-8")
-    public ResultVO<KnifeBean> postTest(@RequestBody KnifeBean swaggerBean) {
+    public ResultVO<KnifeBean> postTest(@Validated @RequestBody KnifeBean swaggerBean) {
         return new ResultVO<>(true, swaggerBean, null, null);
     }
 }

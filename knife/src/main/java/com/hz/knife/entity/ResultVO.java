@@ -2,6 +2,7 @@ package com.hz.knife.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -10,6 +11,7 @@ import java.io.Serializable;
  * @date： 2022/10/8 16:02
  * @discription 返回实体
  */
+@Data
 @ApiModel(value = "ResultVO", description = "公共返回实体")
 public class ResultVO<T> implements Serializable {
     private static final long serialVersionUID = 6543751866024162628L;
@@ -49,38 +51,5 @@ public class ResultVO<T> implements Serializable {
         this.kind = kind;
         this.msg = msg;
     }
-
-    public String getKind() {
-        return this.kind;
-    }
-
-    public void setKind(String kind) {
-        this.kind = kind;
-    }
-
-    public boolean isResult() {
-        return this.result;
-    }
-
-    public void setResult(boolean result) {
-        this.result = result;
-    }
-
-    public String getMsg() {
-        return this.msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return this.data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
 }
 

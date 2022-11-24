@@ -33,6 +33,8 @@ public class Knife4jConfiguration {
                 .apiInfo(apiInfo())
                 //分组名称
                 .groupName("default")
+                //配置网关或者nginx
+                //.pathMapping("knife")
                 .select()
                 //扫描所有有注解的api，用这种方式更灵活
                 //.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
