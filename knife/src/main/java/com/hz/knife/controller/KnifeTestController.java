@@ -27,7 +27,7 @@ public class KnifeTestController {
         }
         JSONObject obj = new JSONObject();
         obj.put("name", name);
-        return new ResultVO<>(true, obj, null, null);
+        return new ResultVO<JSONObject>().success(obj);
     }
 
     @ApiOperation(value = "测试GET请求", notes = "多个参数")

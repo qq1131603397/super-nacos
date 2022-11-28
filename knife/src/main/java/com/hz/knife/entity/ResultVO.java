@@ -24,6 +24,10 @@ public class ResultVO<T> implements Serializable {
     @ApiModelProperty(value = "返回数据", name = "data", notes = "JSON格式")
     private T data;
 
+    public ResultVO<T> success(T data) {
+        return new ResultVO<>(true, data, null, null);
+    }
+
     public ResultVO() {
         this.result = true;
     }
