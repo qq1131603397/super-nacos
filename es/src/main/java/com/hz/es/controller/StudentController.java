@@ -1,15 +1,14 @@
 package com.hz.es.controller;
 
-import com.hz.common.entity.ResultVO;
+import com.hz.es.entity.ResultVO;
+import com.hz.es.entity.Student;
 import com.hz.es.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author： pt
- * @date： 2022/10/8 15:53
+ * @date： 2022/11/29 10:12
  * @discription
  */
 @RestController
@@ -20,9 +19,26 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping("init")
-    public ResultVO initData(){
-        studentService.initData();
-        return new ResultVO();
+    public ResultVO initData() {
+        try {
+            studentService.initData();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultVO.failure("初始化es数据失败");
+        }
+        return ResultVO.success("初始化es数据成功");
     }
+
+    @PostMapping("saveData")
+    public ResultVO saveData(@RequestBody Student student) {
+        try {
+            studentService.saveData(student);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultVO.failure("保存数据失败");
+        }
+        return ResultVO.success("保存数据成功");
+    }
+
 
 }

@@ -7,6 +7,21 @@ server:
 spring:
   application:
     name: es
+  datasource:
+    #url切换数据库之后如果对应数据库名称和路径有变动，需要修改url
+    url: jdbc:mysql://localhost:3306/business?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 980314
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update #指定为update，每次启动项目检测表结构有变化的时候会新增字段，表不存在时会 新建，如果指定create，则每次启动项目都会清空数据并删除表，再新建
+      naming:
+        #指定jpa的自动表生成策略，驼峰自动映射为下划线格式
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    show-sql: true # 默认false，在日志里显示执行的sql语句
+
 
 #elasticsearch配置
 es:
