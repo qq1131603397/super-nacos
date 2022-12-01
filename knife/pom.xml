@@ -97,7 +97,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.hz.knife.KnifeApplication</mainClass>
+                    <mainClass>com.hz.consumer.KnifeApplication</mainClass>
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
             </plugin>
