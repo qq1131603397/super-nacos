@@ -26,7 +26,7 @@ public class KnifeTestController {
         }
         KnifeBean bean = new KnifeBean();
         bean.setName(name);
-        return new ResultVO<KnifeBean>().success(bean);
+        return ResultVO.success(bean);
     }
 
     @ApiOperation(value = "测试GET请求", notes = "多个参数")

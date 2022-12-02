@@ -15,16 +15,16 @@ import java.io.Serializable;
 @ApiModel(value = "ResultVO", description = "公共返回实体")
 public class ResultVO<T> implements Serializable {
     private static final long serialVersionUID = 6543751866024162628L;
-    @ApiModelProperty(value = "kind", name = "kind")
+    @ApiModelProperty(value = "kind")
     private String kind;
-    @ApiModelProperty(value = "结果", name = "result", notes = "true代表成功，false代表失败")
+    @ApiModelProperty(value = "结果", notes = "true代表成功，false代表失败")
     private boolean result;
-    @ApiModelProperty(value = "返回信息", name = "msg", notes = "返回信息，可用于提示")
+    @ApiModelProperty(value = "返回信息", notes = "返回信息，可用于提示")
     private String msg;
-    @ApiModelProperty(value = "返回数据", name = "data", notes = "JSON格式")
+    @ApiModelProperty(value = "返回数据", notes = "JSON格式")
     private T data;
 
-    public ResultVO<T> success(T data) {
+    public static <T> ResultVO<T> success(T data) {
         return new ResultVO<>(true, data, null, null);
     }
 

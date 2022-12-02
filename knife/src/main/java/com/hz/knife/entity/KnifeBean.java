@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 
 /**
  * @author： pt
@@ -14,7 +15,7 @@ import javax.validation.constraints.Min;
  */
 @Data
 @ApiModel(value = "KnifeBean", description = "Knife测试实体")
-public class KnifeBean {
+public class KnifeBean implements Serializable {
 
     @ApiModelProperty(value = "用户id", name = "id", required = true, example = "007", allowableValues = "10")
     @Min(value = 1, message = "最小长度为1")
