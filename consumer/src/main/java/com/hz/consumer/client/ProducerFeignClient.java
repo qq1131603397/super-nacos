@@ -1,6 +1,6 @@
-package com.hz.knife.client;
+package com.hz.consumer.client;
 
-import com.hz.knife.fallback.ProducerClientFallback;
+import com.hz.consumer.fallback.ProducerClientFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

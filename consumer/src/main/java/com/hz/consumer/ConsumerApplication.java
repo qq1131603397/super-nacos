@@ -1,4 +1,4 @@
-package com.hz.knife;
+package com.hz.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

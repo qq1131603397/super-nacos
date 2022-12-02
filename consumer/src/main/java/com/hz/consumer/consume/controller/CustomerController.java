@@ -1,6 +1,6 @@
-package com.hz.knife.consume.controller;
+package com.hz.consumer.consume.controller;
 
-import com.hz.knife.client.ProducerFeignClient;
+import com.hz.consumer.client.ProducerFeignClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;

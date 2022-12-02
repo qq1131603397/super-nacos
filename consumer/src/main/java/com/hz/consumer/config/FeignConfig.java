@@ -1,4 +1,4 @@
-package com.hz.knife.config;
+package com.hz.consumer.config;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;

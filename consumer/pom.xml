@@ -58,7 +58,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.hz.knife.ConsumerApplication</mainClass>
+                    <mainClass>com.hz.consumer.ConsumerApplication</mainClass>
                     <includeSystemScope>true</includeSystemScope>
                 </configuration>
             </plugin>

@@ -1,4 +1,4 @@
-package com.hz.knife.swagger.config;
+package com.hz.consumer.swagger.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
