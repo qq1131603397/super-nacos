@@ -31,8 +31,7 @@ public class FruitService {
     }
 
     public List<Fruit> queryList() {
-        LambdaQueryWrapper<Fruit> lqw = new LambdaQueryWrapper<>();
-        lqw.eq(Fruit::getFruit, "苹果");
-        return fruitMapper.selectList(lqw);
+        String fruit = "青色";
+        return fruitMapper.findAllByFruit(fruit);
     }
 }

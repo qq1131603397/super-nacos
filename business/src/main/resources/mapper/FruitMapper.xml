@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hz.business.document.mapper.FruitMapper">
+
+    <select id="findAllByFruitXml" resultType="com.hz.business.document.entity.Fruit">
+        SELECT
+            *
+        FROM
+            fruit
+        WHERE
+            color = #{fruit}
+        Order By produce_date
+    </select>
+
+</mapper>
