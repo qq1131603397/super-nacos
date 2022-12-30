@@ -25,7 +25,7 @@ public class EasyExcelUtil {
         headWriteCellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
         //设置头字体
         WriteFont headWriteFont = new WriteFont();
-        headWriteFont.setFontHeightInPoints((short)11);
+        headWriteFont.setFontHeightInPoints((short)14.5);
         headWriteFont.setBold(true);
         headWriteCellStyle.setWriteFont(headWriteFont);
         //设置头居中
@@ -36,7 +36,7 @@ public class EasyExcelUtil {
         WriteCellStyle contentWriteCellStyle = new WriteCellStyle();
         //设置内容字体
         WriteFont contentWriteFont = new WriteFont();
-        contentWriteFont.setFontHeightInPoints((short)10.5);
+        contentWriteFont.setFontHeightInPoints((short)13.5);
         contentWriteCellStyle.setWriteFont(contentWriteFont);
         //设置 水平居中 垂直居中
         contentWriteCellStyle.setHorizontalAlignment(HorizontalAlignment.CENTER);

@@ -18,10 +18,10 @@ public class FruitExportDto {
     @ExcelProperty(value = "水果名称", index = 1)
     private String fruit;
 
+    private String produceDate;
+
     @ExcelProperty(value = "水果颜色", index = 2)
     private String color;
 
-    @ExcelProperty(value = "水果产期", index = 3)
-    private String produceDate;
 
 }

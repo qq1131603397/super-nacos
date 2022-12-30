@@ -1,6 +1,8 @@
 package com.hz.knife.controller;
 
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
+import com.github.xiaoymin.knife4j.annotations.DynamicParameter;
+import com.github.xiaoymin.knife4j.annotations.DynamicResponseParameters;
 import com.hz.knife.entity.KnifeBean;
 import com.hz.knife.entity.ResultVO;
 import io.swagger.annotations.*;
@@ -20,13 +22,13 @@ public class KnifeTestController {
 
     @ApiOperation(value = "测试GET请求", notes = "单个参数")
     @GetMapping(value = "getOne", produces = "application/json; charset=utf-8")
-    public ResultVO<KnifeBean> getTest(@ApiParam(name = "name", value = "用户名称", required = false) @RequestParam("name") String name) {
+    public KnifeBean getTest(@ApiParam(name = "name", value = "用户名称", required = false) @RequestParam("name") String name) {
         if (name == null || "".equals(name)) {
-            return new ResultVO<>(false, null, "用户名为空");
+            return null;
         }
         KnifeBean bean = new KnifeBean();
         bean.setName(name);
-        return ResultVO.success(bean);
+        return bean;
     }
 
     @ApiOperation(value = "测试GET请求", notes = "多个参数")
@@ -37,10 +39,10 @@ public class KnifeTestController {
                     "String", required = true, paramType = "query")
     })
     @GetMapping(value = "getMore", produces = "application/json; charset=utf-8")
-    public ResultVO<KnifeBean> getTest2(@RequestParam("name") String name, @RequestParam("password") String password) {
+    public ResultVO<KnifeBean> getTest2(KnifeBean swaggerBean) {
         KnifeBean bean = new KnifeBean();
-        bean.setName(name);
-        bean.setPassword(password);
+        bean.setName(swaggerBean.getName());
+        bean.setPassword(swaggerBean.getPassword());
         return new ResultVO<>(true, bean, null, null);
     }
 
@@ -64,6 +66,12 @@ public class KnifeTestController {
             @ApiResponse(code = 404, message = "未找到"),
             @ApiResponse(code = 500, message = "服务器内部错误"),
             @ApiResponse(code = 503, message = "服务不可用"),
+    })
+    @DynamicResponseParameters(properties = {
+            @DynamicParameter(name = "result", value = "事件结果(true：成功；false：失败)", example = "true", dataTypeClass = Boolean.class),
+            @DynamicParameter(name = "data", value = "返回数据", dataTypeClass = KnifeBean.class),
+            @DynamicParameter(name = "kind", value = "类型", dataTypeClass = String.class),
+            @DynamicParameter(name = "msg", value = "返回消息", dataTypeClass = String.class),
     })
     @PostMapping(value = "postTest", produces = "application/json; charset=utf-8")
     public ResultVO<KnifeBean> postTest(@Validated @RequestBody KnifeBean swaggerBean) {
