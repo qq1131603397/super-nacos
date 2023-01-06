@@ -4,8 +4,8 @@ spring:
   cloud:
       nacos:
         config:
-          server-addr: 192.168.38.1:8848
-          namespace: a7d44e2b-5eed-4879-88e3-d8f99bb905a8
+          server-addr: 192.168.179.128:8848
+          namespace: 8ef588ec-5a15-442f-bef3-8ea62d02ca3c
           file-extension: yml
           shared-dataids: common-nacos.yml
           refreshable-dataids: common-nacos.yml

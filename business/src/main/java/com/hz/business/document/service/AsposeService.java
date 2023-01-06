@@ -7,8 +7,9 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.hz.business.document.bean.vo.FileTransferVo;
 import com.hz.business.document.util.AsposeWordsHelper;
-import com.hz.common.utils.FileUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +26,9 @@ import java.util.List;
  */
 @Service
 public class AsposeService {
+
+    @Value("classpath:tpl/aspose.docx")
+    private Resource asposeDocx;
 
     private final List<String> warnInfosHeader = Lists.newArrayList("告警事件类型", "告警内容", "处置结果", "时间");
     private final List<String> fileInfosHeader = Lists.newArrayList("文件名称", "传输方式", "大小", "传输方向", "时间");
@@ -63,9 +67,7 @@ public class AsposeService {
      * @throws Exception
      */
     public void handleAsposeReport(String filePath, HttpServletResponse response) throws Exception {
-        ClassPathResource classPathResource = new ClassPathResource("tpl/aspose.docx");
-        File file = classPathResource.getFile();
-        Document document = new Document(new FileInputStream(file));
+        Document document = new Document(asposeDocx.getInputStream());
         //行式结构数据填充
         Map<String, Object> map = new HashMap<>();
         generalTimeInfo(map);
@@ -83,7 +85,7 @@ public class AsposeService {
         builder.moveToBookmark("mark_opsDetails");
         //自定义表格
         buildData(builder);
-        document.save(filePath + ".pdf", SaveFormat.PDF);
+        document.save(filePath, SaveFormat.PDF);
         exportAspose(filePath, response);
     }
 

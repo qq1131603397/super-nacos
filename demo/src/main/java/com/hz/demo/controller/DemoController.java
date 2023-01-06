@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.BufferedWriter;
+
 /**
  * @author： pt
  * @date： 2022/12/1 18:02
@@ -19,5 +21,7 @@ public class DemoController {
     public void openApi(){
         System.out.println(111);
     }
+
+
 
 }
