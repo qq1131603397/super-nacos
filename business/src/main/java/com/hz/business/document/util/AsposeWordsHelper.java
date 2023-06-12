@@ -21,13 +21,25 @@ import java.util.Set;
  */
 public class AsposeWordsHelper {
 
+    private static volatile AsposeWordsHelper instance;
+
+    public AsposeWordsHelper(){
+    }
+
+    public static AsposeWordsHelper getInstance(){
+        if (instance == null){
+            instance = new AsposeWordsHelper();
+        }
+        return instance;
+    }
+
     /**
      * 构建公用的运维信息
      *
      * @param builder
      * @throws Exception
      */
-    public static void buildHeader(DocumentBuilder builder, List<Double> widths) throws Exception {
+    public void buildHeader(DocumentBuilder builder, List<Double> widths) throws Exception {
         builder.startTable();
         builder.insertCell();
         builder.getCellFormat().getShading().clearFormatting();
@@ -54,7 +66,7 @@ public class AsposeWordsHelper {
      * @param size
      * @throws Exception
      */
-    public static void buildTitle(DocumentBuilder builder, String titleName, int size, List<Double> widths) throws Exception {
+    public void buildTitle(DocumentBuilder builder, String titleName, int size, List<Double> widths) throws Exception {
         builder.startTable();
         builder.insertCell();
         builder.getCellFormat().setHorizontalMerge(CellMerge.FIRST);
@@ -76,7 +88,7 @@ public class AsposeWordsHelper {
      * @param contentsList
      * @throws Exception
      */
-    public static void buildBody(DocumentBuilder builder, List<String> headers, List<List<Object>> contentsList, List<Double> widths) throws Exception {
+    public void buildBody(DocumentBuilder builder, List<String> headers, List<List<Object>> contentsList, List<Double> widths) throws Exception {
         builder.getCellFormat().setHorizontalMerge(CellMerge.NONE);
         builder.getCellFormat().getShading().clearFormatting();
         for (int i = 0; i < headers.size(); i++) {
@@ -103,7 +115,7 @@ public class AsposeWordsHelper {
      * @param map
      * @throws Exception
      */
-    public static void mergeDocumentProperties(Document document, Map<String, Object> map) throws Exception {
+    public void mergeDocumentProperties(Document document, Map<String, Object> map) throws Exception {
         String[] keys = map.keySet().toArray(new String[0]);
         Object[] values = map.values().toArray();
         document.getMailMerge().execute(keys, values);
@@ -117,11 +129,11 @@ public class AsposeWordsHelper {
      * @param tableName
      * @return
      */
-    public static DataTable generalDataTable(Set<String> properties, List<JSONObject> tableList, String tableName) {
+    public DataTable generalDataTable(Set<String> properties, List<JSONObject> tableList, String tableName) {
         DataTable dt = new DataTable(tableName);
         properties.forEach(param -> dt.getColumns().add(param));
         if (tableList.size() > 0) {
-            tableList.forEach(AsposeWordsHelper::filterNull);
+            tableList.forEach(AsposeWordsHelper.instance::filterNull);
             for (JSONObject jsonObject : tableList) {
                 DataRow row = dt.newRow();
                 for (String key : jsonObject.keySet()) {
@@ -145,7 +157,7 @@ public class AsposeWordsHelper {
      * @param jsonObj
      * @return
      */
-    public static JSONObject filterNull(JSONObject jsonObj) {
+    public JSONObject filterNull(JSONObject jsonObj) {
         Iterator<String> it = jsonObj.keySet().iterator();
         Object obj = null;
         String key = null;

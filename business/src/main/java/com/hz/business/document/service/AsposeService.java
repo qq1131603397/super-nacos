@@ -8,7 +8,6 @@ import com.google.common.collect.Sets;
 import com.hz.business.document.bean.vo.FileTransferVo;
 import com.hz.business.document.util.AsposeWordsHelper;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
@@ -72,13 +71,13 @@ public class AsposeService {
         Map<String, Object> map = new HashMap<>();
         generalTimeInfo(map);
         generalTaskInfo(map);
-        AsposeWordsHelper.mergeDocumentProperties(document, map);
+        AsposeWordsHelper.getInstance().mergeDocumentProperties(document, map);
         //列式数据填充
         DataSet dataSet = new DataSet();
         List<JSONObject> fileTransferObjects = generalFileTransferData();
         Set<String> fileSet = Sets.newHashSet("fileName", "fileType", "fileSize",
                 "operateType", "operateDirect", "createTime");
-        dataSet.getTables().add(AsposeWordsHelper.generalDataTable(fileSet, fileTransferObjects, "fileTransferTable"));
+        dataSet.getTables().add(AsposeWordsHelper.getInstance().generalDataTable(fileSet, fileTransferObjects, "fileTransferTable"));
         document.getMailMerge().executeWithRegions(dataSet);
         //移动到书签位置
         DocumentBuilder builder = new DocumentBuilder(document);
@@ -100,18 +99,18 @@ public class AsposeService {
         builder.getParagraphFormat().setAlignment(ParagraphAlignment.CENTER);
         builder.getFont().setSize(10.5);
         builder.getFont().setName("宋体");
-        AsposeWordsHelper.buildHeader(builder, headerWidths);
+        AsposeWordsHelper.getInstance().buildHeader(builder, headerWidths);
         if (getWarnInfos().size() > 0) {
-            AsposeWordsHelper.buildTitle(builder, "告警信息", 4, warnInfosWidths);
-            AsposeWordsHelper.buildBody(builder, warnInfosHeader, getWarnInfos(), warnInfosWidths);
+            AsposeWordsHelper.getInstance().buildTitle(builder, "告警信息", 4, warnInfosWidths);
+            AsposeWordsHelper.getInstance().buildBody(builder, warnInfosHeader, getWarnInfos(), warnInfosWidths);
         }
         if (getFileInfos().size() > 0) {
-            AsposeWordsHelper.buildTitle(builder, "文件传输", 5, fileInfosWidths);
-            AsposeWordsHelper.buildBody(builder, fileInfosHeader, getFileInfos(), fileInfosWidths);
+            AsposeWordsHelper.getInstance().buildTitle(builder, "文件传输", 5, fileInfosWidths);
+            AsposeWordsHelper.getInstance().buildBody(builder, fileInfosHeader, getFileInfos(), fileInfosWidths);
         }
         if (getOpsDetails().size() > 0) {
-            AsposeWordsHelper.buildTitle(builder, "运维内容", 2, opsDetailsWidths);
-            AsposeWordsHelper.buildBody(builder, opsDetailsHeader, getOpsDetails(), opsDetailsWidths);
+            AsposeWordsHelper.getInstance().buildTitle(builder, "运维内容", 2, opsDetailsWidths);
+            AsposeWordsHelper.getInstance().buildBody(builder, opsDetailsHeader, getOpsDetails(), opsDetailsWidths);
         }
     }
 

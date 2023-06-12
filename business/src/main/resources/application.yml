@@ -11,11 +11,11 @@ spring:
     name: business
   datasource:
     #url切换数据库之后如果对应数据库名称和路径有变动，需要修改url
-    url: jdbc:p6spy:mysql://localhost:3306/business?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/business?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: 980314
+    password: 5292c32a2bd461fe53ac89a0d920e1ea
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 #    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
   jpa:
     hibernate:
@@ -29,3 +29,18 @@ custom:
   report:
     path: D:\globalFileStorage\temps
   name: 123456
+  enabled: true
+  secretKey: c61db6e1e6b32cc229bb4290cd4d693d
+
+# 配置jasypt相关信息
+jasypt:
+  encryptor:
+    # 配置加密算法
+    password: Gqakj@651243
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+    property:
+      # 算法识别前缀(当算法发现配置文件中的值以这前缀开始，后缀结尾时，会使用指定算法解密)
+      prefix: QIAN(
+      # 算法识别后缀
+      suffix: )
